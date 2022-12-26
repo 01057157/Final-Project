@@ -1,5 +1,6 @@
 var po, init = 0, tempPassword = "";
-copyicon = document.querySelector(".inputbox span");
+copyicon = document.getElementById("copy");
+download = document.getElementById("download");
 const radioButtons = document.querySelectorAll('input[name="generator"]');
 var tags;
 var count = 1;
@@ -107,6 +108,13 @@ function copypass(){
    },1500);
 }
 
+function downloadfile(){
+   download.innerText = "download_done";
+   setTimeout(() => {
+      download.innerText = "file_open";    
+   },1500);
+}
+
 function save(){
    var current = new Date();
 
@@ -159,5 +167,6 @@ function start(){
    loadSearches();
 }
 
+download.addEventListener("click",downloadfile);
 copyicon.addEventListener("click",copypass);
 s.addEventListener( "click", start, false );
