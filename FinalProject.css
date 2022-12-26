@@ -67,7 +67,7 @@ input[type="range"]{
 }
 .flex-container #download{
     position: absolute;
-    right: 18px;
+    right: 30px;
     line-height: 53px;
     cursor: pointer;
     color: grey;
