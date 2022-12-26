@@ -5,6 +5,7 @@
     'GRAD' 0,
     'opsz' 48
 }
+
 html{
     background-image: url("darkgrey.jpg");
     background-attachment: fixed;
@@ -31,6 +32,12 @@ body {
 .box .inputbox{
     position: relative;
 }
+.box .flex-container{
+    position: relative;
+}
+.flex-container .down{
+    margin-top: -11px;
+}
 .flex-container{
     display: flex;
     margin-left: 5px;
@@ -51,13 +58,21 @@ input[type="range"]{
     margin-left: 11px;
     font-size: 20px;
 }
-.inputbox span{
+.inputbox #copy{
     position: absolute;
     right: 18px;
     line-height: 53px;
     cursor: pointer;
     color: grey;
 }
+.flex-container #download{
+    position: absolute;
+    right: 18px;
+    line-height: 53px;
+    cursor: pointer;
+    color: grey;
+}
+
 .slider {
     position: absolute;
     top: 4.4cm;
