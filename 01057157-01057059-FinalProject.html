@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chivo&display=swap" rel="stylesheet">
         <link rel="stylesheet" type ="text/css" href="FinalProject.css">
-        <script src="FinalProject.js" defer></script>
+        <script src="FinalProject.js" defer></script>   
     </head>
 
     <body onload="setup()">
@@ -28,7 +28,7 @@
                     <label for = "pin">PIN</label> 
                 </div>
                 <div class="down">
-                    <a href="PasswordGenerator-01057059-01057157.pptx" download="01057157-01057059-FinalProject.pptx"><span id = "download" class="material-symbols-outlined">file_open</span></a>
+                    <a href="01057157-01057059-FinalProject.pptx" download="01057157-01057059-FinalProject.pptx"><span id = "download" class="material-symbols-outlined">file_open</span></a>
                 </div>
             </div>
             <div class="pw" id = "len">
@@ -72,7 +72,7 @@
             </div>
             <br id = "enter">
             <button onclick="generate()" class="btn1" id ="generatebutton">Generate</button>
-            <button onclick="save()" class="btn2" id ="savebutton">Save Password</button>
+            <a href="#account"><button onclick="change()" class="btn2" id ="savebutton">Save Password</button></a>
             <a href ="#history"><button class="btn2" id ="historybutton">History</button></a>
         </div>
         <div class = "overlay" id = "history">
@@ -84,6 +84,19 @@
                     <div class="container">
                         <p id = "display"></p>
                         <button class ="btn-delall" onclick="deleteAll()">Delete All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "overlay" id = "account">
+            <div class="wrap">
+                <div class="content">
+                    <div class="container1">
+                        <div class = "info">
+                            <label>For what account ?<input type="text" id = "acc"></label>
+                        </div>
+                        <p>Password : <span id = "information"></span></p>
+                        <button class ="btn-save" onclick="save()">Save</button>
                     </div>
                 </div>
             </div>
