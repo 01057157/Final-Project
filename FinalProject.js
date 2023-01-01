@@ -18,7 +18,7 @@ function httpget(url,callback){
 
 httpget('FinalProject.txt',function(request){
    if(request.readyState == 4 && request.status == 200){
-      console.log("Succes");
+      console.log("Success");
    }
 });
             
