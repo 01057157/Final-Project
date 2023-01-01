@@ -5,6 +5,22 @@ const radioButtons = document.querySelectorAll('input[name="generator"]');
 var tags;
 var count = 1;
 var s = document.getElementById("historybutton");
+var x = document.getElementById("savebutton");
+
+function httpget(url,callback){
+   const request = new XMLHttpRequest();
+   request.open('get',url,true);
+   request.onload = function(){
+      callback(request);
+   };
+   request.send();
+}
+
+httpget('FinalProject.txt',function(request){
+   if(request.readyState == 4 && request.status == 200){
+      console.log("Succes");
+   }
+});
             
 function setup(){
    document.getElementById("len").style.display = "none";
@@ -12,6 +28,7 @@ function setup(){
    document.getElementById("customize").style.display = "none";
    document.getElementById("generatebutton").style.display = "none";
    document.getElementById("savebutton").style.display = "none";
+   document.getElementById("account").style.display = "none";
 }
 
 function handleRadioClick() {
@@ -52,6 +69,7 @@ function handleRadioClick() {
  });
 
 function generate(){
+   document.getElementById("savebutton").disabled = false;
    custom = "";
    tempPassword = "";
    optionPassword = "";
@@ -115,21 +133,39 @@ function downloadfile(){
    },1500);
 }
 
-function save(){
-   var current = new Date();
-
-   if (tempPassword != ""){
-      localStorage.setItem(current.getTime(), tempPassword);
-   }
-   else{
-
-   }
+function change(){
+   document.getElementById("information").innerHTML = tempPassword;
+   document.getElementById("account").style.display = "block";
    copyicon.innerText = "check";
    copyicon.style.color = "green";
    setTimeout(() => {
       copyicon.style.color = "grey";
       copyicon.innerText = "copy_all";        
    },1500);
+}
+
+function save(){
+   document.getElementById("account").style.display = "none";
+   var account = document.getElementById("acc").value;
+   var password = tempPassword;
+   var current = new Date();
+
+   const obj =  {account: account, password: password}
+   const value = JSON.stringify(obj); 
+   
+
+   if (tempPassword != ""){
+      localStorage.setItem(current.getTime(), value);
+   }
+
+   copyicon.innerText = "check";
+   copyicon.style.color = "green";
+   setTimeout(() => {
+      copyicon.style.color = "grey";
+      copyicon.innerText = "copy_all";        
+   },1500);
+   document.getElementById("acc").value = "";
+   document.getElementById("savebutton").disabled = true;
 }
 
 function loadSearches() {
@@ -145,9 +181,10 @@ function loadSearches() {
 
    count = 1;
    for (var tag in tags) {
-      var query = localStorage.getItem(tags[tag]);
-      output += "<span id = 'ipw'>" + count + ". " + query + "<button id = '" + tags[tag]
-         +  "' onclick = 'deleteTag(id)' class='btn-danger'>Delete</button></span><br><br>";
+      var query = JSON.parse(localStorage.getItem(tags[tag]));
+      output += "<span id = 'ipw'>" + count + ". Account: " + query.account +  "<button id = '" + tags[tag]
+         +  "' onclick = 'deleteTag(id)' class='btn-danger'>Delete</button> <br>&nbsp&nbsp&nbsp&nbsp " + 
+         "Pass: " + query.password + "</span><br><br>";
       count++;
    } 
    document.getElementById("display").innerHTML = output;
@@ -166,6 +203,14 @@ function deleteTag( tag ) {
 function start(){
    loadSearches();
 }
+
+document.getElementById("acc")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("savebtn").click();
+    }
+}); //click enter to save
 
 download.addEventListener("click",downloadfile);
 copyicon.addEventListener("click",copypass);
