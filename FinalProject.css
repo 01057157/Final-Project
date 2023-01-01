@@ -118,6 +118,14 @@ input[type="range"]{
     padding: 0 2.85rem 0 1rem;
     margin-left: 10px;
 }
+
+.info input{
+    width: 50%;
+    font-size: 16px;
+    border: 1px solid black;
+    padding: 0 0.5rem 0 0.5rem;
+    margin-left: 10px;
+}
 .btn1{
     width: 300px;
     padding: 0.95rem 0;
@@ -193,31 +201,49 @@ a{text-decoration: none;}
     border-radius: 3px;
     cursor: pointer;
 }
+
+.container1 button{
+    float: right;
+    background: green;
+    padding: 0.3rem 0;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
 .btn-danger{
     width: 100px;
     color: white;
 }
-.btn-delall{
+.btn-save, .btn-delall{
     width: 100%;
     color: white;
     align-content: center;
 }
-@media only screen and (max-width:810px){
+@media only screen and (max-width:850px){
     .wrap{
         width: 40%;
         transition: none;
     }
+    .info input{
+        margin-top: 3px;
+        margin-left: 10px;
+        width: 50%;
+    }
 }
 @media only screen and (max-width:610px){
     .wrap{
-        width: 40%;
+        width: 60%;
         transition: none;
     }
     .wrap h2{
         font-size: 18px;
     }
     #ipw{
-        font-size: 14px;
+        font-size: 16px;
+    }
+    .info input{
+        width: 30%;
     }
 }
 @media only screen and (max-width:525px){
@@ -229,9 +255,12 @@ a{text-decoration: none;}
         font-size: 18px;
     }
     #ipw{
-        font-size: 14px;
+        font-size: 16px;
     }
     .btn-danger{
         width: 70px;
+    }
+    .info input{
+        width: 25%;
     }
 }
