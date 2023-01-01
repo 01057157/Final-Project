@@ -120,7 +120,7 @@ input[type="range"]{
 }
 
 .info input{
-    width: 50%;
+    width: 30%;
     font-size: 16px;
     border: 1px solid black;
     padding: 0 0.5rem 0 0.5rem;
@@ -195,7 +195,7 @@ a{text-decoration: none;}
 .container button{
     float: right;
     background: red;
-    padding: 0.3rem 0;
+    padding: 0.2rem 0;
     border: none;
     outline: none;
     border-radius: 3px;
@@ -205,7 +205,7 @@ a{text-decoration: none;}
 .container1 button{
     float: right;
     background: green;
-    padding: 0.3rem 0;
+    padding: 0.2rem 0;
     border: none;
     outline: none;
     border-radius: 3px;
@@ -222,7 +222,7 @@ a{text-decoration: none;}
 }
 @media only screen and (max-width:850px){
     .wrap{
-        width: 40%;
+        width: 60%;
         transition: none;
     }
     .info input{
@@ -263,4 +263,5 @@ a{text-decoration: none;}
     .info input{
         width: 25%;
     }
+
 }
